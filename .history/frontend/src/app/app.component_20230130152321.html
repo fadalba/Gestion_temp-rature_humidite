@@ -1,0 +1,16 @@
+
+<div *ngIf="showHead" style="margin-left: 1.5%; margin-right: 2.1%;margin-top: 2%;">
+    <app-header></app-header>
+</div>
+<div class="d-flex" style="border: 1px solid #F5F5F5;">
+    <div *ngIf="showHead" style="width: 25%;margin-left: 1.5%;margin-bottom: 1.5%;">
+
+        <app-sidebar style="height: 100vh"></app-sidebar>
+
+    </div>
+    <div class="w-100" style="margin-right: 2.1%;">
+        <router-outlet></router-outlet>
+    </div>
+
+</div>
+

@@ -1,0 +1,229 @@
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.sidebar-open{
+    background-color: #080808;
+    border: none;
+    color: white;
+    padding: 4px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.btnsidebar{
+    background-color: #0C7C8F;
+    color: white;
+    border: 1px solid #555555;
+    border-radius: 10px;
+}
+
+.btnsidebar:hover{
+    box-shadow: 2px 2px 5px gray;
+}
+
+.sidebar-slider {
+    // position: fixed;
+    // top: 0;
+    // left: 0;
+    // bottom: 0;
+    background-color: #0C7C8F;
+    // transform: translateX(-100%);
+    // transition: ease-in-out 300ms transform;
+    width: 100%;
+    // height: 100%;
+     text-align: center;
+     margin-top: -5px;
+}
+
+.sidebar-slider.sidebar-slide-in {
+    transform: translateX(0%);
+    transition: ease-in-out 600ms transform;
+}
+
+.sidebar-close {
+    position: fixed;
+    top: 0;
+    right: 0;
+    color: black;
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    margin: 7px;
+    border-radius: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 21px;
+    font-weight: 400;
+}
+
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    height: 100%;width: 100%;text-align: center;
+    margin-top:8px;
+
+}
+
+.set-align{
+    text-align: center;
+}
+
+.set-sidebar-text{
+    padding: 11px;
+}
+
+.set-sidebar-text:hover{
+    background-image: linear-gradient(to right, rgb(150, 218, 250),black);
+    color: black;
+    border-left: 10px solid rgb(3, 172, 250);
+    cursor: pointer;
+}
+
+
+
+.bi{
+    font-size:40px !important;
+}
+
+#dashboardIcon
+{
+    font-size:50px !important;
+}
+
+
+.set-sidebar-text
+{
+   background-color: #0C7C8F;
+   border: none;
+   color: #FFFFFF;
+}
+
+
+// style du formulaire inscription
+
+.container
+{
+    border: 2px solid #000000;
+    box-shadow: 6px 4px 2px #000000;
+    border-radius: 5px;
+}
+a{
+    font-size: 17px;
+}
+.text-center
+{
+    margin-top: 1px;
+    font-size: larger;
+    font-weight: bolder;
+    size: 10px;
+}
+
+.profil {
+    width: 80px;
+    height: 80px;
+    margin-top: 0px;
+    margin-bottom: 5px;display: flex;justify-content: center;margin-left: 42%;
+}
+
+.img-fluid
+{
+    height: 75px;
+    width: 105px;
+    border-radius: 50%;
+}
+.img-Climat
+{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-top: -11px;
+
+}
+
+.btn
+{
+    background-color: #0C7C8F;
+    border-color: #0C7C8F;
+    color: #FFFFFF;
+    font-weight: bold;
+    size: 80px;
+    margin-left: 15%;
+    margin-top: 25px;
+    width: 70%;
+
+}
+.btn:hover
+{
+    background-color:#4BCFFF;
+    color: blue;
+    border: none;
+}
+span
+{
+    color: #F90303;
+}
+
+//style du modal
+
+.modal{
+    background: rgba(0,0,0,0.7);
+}
+
+
+.modal-content{background-color: #F5F5F5;width: 700px;height: 700px; padding: 0px 3%;}
+
+.row g-3 my-5{width: 90%;}
+
+.modal-header
+{
+    justify-content: center;
+
+}.modal-title
+{
+    color: #000000;
+    font-weight: 700;
+
+}
+
+
+
+.exit
+{
+    background: #F5F5F5;
+    color: #000000;
+    font-weight: bolder;
+    border: none;
+   font-size: larger;
+
+   top: -3px;
+   margin-left: 600px;
+   width: 30px;
+}#bi:hover{background-color: #F90303;}
+.row g-3 my-5
+{margin-top: 0px;background-color: red;}
+.profil
+{margin-top: 4px;}
+
+#boutFormModifPwd{
+ display: flex;
+
+ align-items: center;
+}
+.form-group
+{
+    justify-content: center;
+}
+.conf
+#anuler{background-color: red;}
+

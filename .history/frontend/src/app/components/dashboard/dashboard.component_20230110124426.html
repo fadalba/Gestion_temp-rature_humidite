@@ -1,0 +1,142 @@
+
+<br/>
+<div class="container d-flex h-100 flex-column" style="background-color: rgb(224, 227, 229);" > <!-- div principal -->
+
+  <div class="row flex-fill d-flex" >  <!-- div contenant les 3 premiers sous divs -->
+    <h2 align="center">Température et Humidité en temps réel</h2>
+    <div class="col-md-4 bg-light m-2" style="border-radius: 5px;">  <!-- div température -->
+      <img src="../assets/tmp.png" class="img-fluid rounded-circle" height="50px">  <h5 align="right">Température <br/> 20 &deg; C </h5>
+    </div>
+    <div class="col-md-4 bg-light m-2" style="border-radius: 5px;">    <!-- div humidité -->
+
+      <img src="../assets/hum.png" class="img-fluid rounded-circle" height="50px"> <h5 align="right">Humidité<br/> 38%</h5>
+    </div>
+    <div class="col-md-3 bg-light m-2" style="border-radius: 5px;"> <!-- div ventilation -->
+      <h5 align="center">Visualisation de la ventilation</h5>
+     
+      <div class="alarm">
+        <h1 align="right"><i class="bi bi-bell-fill" style="color: green; height: 500px;"></i></h1>
+        <div class="vent">
+         <h1 align="left"><i class="bi bi-fan"></i></h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row flex-fill d-flex">  <!-- div partie 2 -->
+    <div class="col-7 bg-light m-2" style="border-radius: 5px;">  <!-- div information  température et humidité journée -->
+
+      <table class="table caption-top">
+        <caption><h2 align="center">Données de la journée</h2></caption>
+        <thead>
+          <tr align="center">
+
+            <th scope="col">Température</th>
+            <th scope="col">Humidité</th>
+            <th scope="col">Heure</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr align="center">
+
+            <td>recup T° 8h</td>
+            <td>recup Hum 8h</td>
+            <th scope="row">8h  <img src="../assets/soleil8h.jpg" height="50px"> </th>
+
+          </tr>
+          <tr align="center">
+
+            <td>recup T° 12h </td>
+            <td>recp Hum 12h</td>
+            <th scope="row">12H  <img src="../assets/soleil12h.jpg" height="50px"> </th>
+
+          </tr>
+          <tr align="center">
+
+            <td>recp T° 19h</td>
+            <td>recup Hum 19H</td>
+            <th scope="row">19h  <img src="../assets/soleil19h.jpg" height="50px"> </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4 bg-light m-2" style="border-radius: 5px;">  <!-- div informations personnelles -->
+      <h2 align="center">Listes</h2>
+     <div>
+      <h1 align="center"><a routerLink='' ><i class="bi bi-people-fill" style="color: green;" ></i></a></h1>
+    <h2 align="center"> <span>Utilisateurs actifs </span></h2>
+    </div>
+    <div>
+      <h1 align="center"><a routerLink='' ><i class="bi bi-person-down" style="color: red;"></i></a></h1>
+    <h2 align="center"> <span>Utilisateurs Archivés </span></h2>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- ************************************Tableau de la semaine**********************************-->
+
+
+  <br><div class="tab container" style="background-color: rgb(237, 240, 242); border-radius: 5px;">
+
+    <h2 align="center">Historiques des Température de la semaine</h2>
+    <br/><table class="table table-bordered border-black">
+
+    <thead>
+      <tr align="center" style="background-color: #17A2B8;">
+        <th scope="col">Heures/jours</th>
+        <th scope="col">Lundi</th>
+        <th scope="col">Mardi</th>
+        <th scope="col">Mercredi</th>
+        <th scope="col">Jeudi</th>
+        <th scope="col">Vendredi</th>
+        <th scope="col">Samedi</th>
+        <th scope="col">Dimanche</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr align="center">
+        <th scope="row">8H00</th>
+        <td>20&deg;C  / 30 %</td>
+        <td>20&deg;C / 30%</td>
+        <td>20&deg;C  / 30%</td>
+        <td>20&deg;C  / 30%</td>
+        <td>20&deg;C  / 30%</td>
+        <td>20&deg;C  / 30%</td>
+        <td>20&deg;C  / 30%</td>
+      </tr>
+      <tr align="center">
+        <th scope="row">12H00</th>
+        <td>&deg;C  / %</td>
+        <td>&deg;C  / %</td>
+        <td>&deg;C  / %</td>
+        <td>&deg;C  / %</td>
+        <td>&deg;C  / %</td>
+        <td>&deg;C  / %</td>
+        <td>&deg;C  / %</td>
+      </tr>
+      <tr align="center">
+        <th scope="row">19H00 </th>
+        <td>&deg;C  / %</td>
+        <td>&deg;C  / %</td>
+        <td>&deg;C  / %</td>
+        <td>&deg;C  / %</td>
+        <td>&deg;C  / %</td>
+        <td>&deg;C  / %</td>
+        <td>&deg;C  / %</td>
+      </tr>
+
+
+    </tbody>
+  </table>
+  </div>
+
+
+<!-- <style>
+  img{
+    border-radius: 10px;
+
+  }
+</style>
+

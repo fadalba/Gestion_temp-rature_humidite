@@ -1,0 +1,150 @@
+.container{display: flex;flex-direction: column;gap:0.1px;background-color:#F5F5F5;height: 800px; width: 98%; margin-top: 10px;padding: 1%;}
+.blc1{height: 23%;width: 100%;display: flex;gap: 1%;padding: 1%; }
+.blc2{height: 50%;width: 100%;display:flex;gap: 1%;padding: 1%;}
+.blc3{height: 27%;width: 100%;background-color: #FFFFFF;justify-content: center;box-shadow:3px 5px 5px black; }
+
+.bl1{background-color: #FFFFFF;width: 37%;box-shadow:2px 3px 3px black;height: 100%; display: flex;gap: 1%; border-radius: 15px;}
+.bl11{background-color: #FFFFFF;width: 37%;box-shadow:3px 2px 2px black;height: 100%;display: flex;gap: 1%;border-radius: 15px;}
+.bl12{background-color: #FFFFFF;width: 26%;box-shadow:3px 3px 3px black;height: 100%;display: flex;gap: 1%;flex-direction: column;justify-content: center;vertical-align: middle;padding-left: 10%;border-radius: 15px;}
+
+.blc21{background-color: green;width: 74%;height: 100%;border-radius: 15px;}
+.blc22{background-color: yellow;width: 26%;height: 100%; border-radius: 15px;}
+
+.imTemp
+{width: 45%;height: 98%;padding: 2%;background-color: #ffffff;justify-content: center;padding-left: 4%;}
+.imT{border-radius: 100%; width:98%; height: 98%;border-radius: 15px;}
+.textTemp{width: 55%;height: 98%;text-align: center;
+vertical-align: middle;}
+
+h3{color: whitesmoke;size: 5px;font-size: larger;font-weight: bolder;}
+
+.fanetalarm{display: flex;gap: 13%;}
+//style du toogle button
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+
+
+  //style de la section donnee de la jornee et liste
+
+  // .blc21
+  // {
+  //   display: flex;flex-direction: column;gap: 3%;
+  //   width: 74%;
+  //   height: 98%;
+  //   text-align: center;
+  //   background-color: #FFFFFF;
+  //   box-shadow:5px 5px 5px black;
+  // }
+  .blc22
+  {
+    width: 26%;
+    height: 98%;
+
+    background-color: #FFFFFF;box-shadow:5px 5px 5px black;
+    display: flex;
+    flex-direction: column; justify-content: center;align-items: center;gap: 3%
+  }
+
+
+  .sec1{display: flex;gap: 8%;
+justify-content: center;}
+
+.sec2{display: flex;gap: 8%;
+    justify-content: center;}
+
+    .sec23{display: flex;gap: 8%;justify-content: center;}
+    .imm{width:50px;
+    height: 47px;border-radius: 50%;
+}
+
+.sec3{display: flex;gap: 8%;
+    justify-content: center;} .sec4{display: flex;gap: 8%;
+        justify-content: center;}
+
+.sec21
+{margin-left: 10%;}
+.sec22
+{margin-left: 16%;margin-right: 5%;}
+
+.p{font-weight: 700;
+color: #000000; size: 18px;}
+
+//style des listes
+.blc22{box-shadow:5px 5px 5px black;}
+.haut{width: 98%;height: 46%;background-color: #FFFFFF;display: flex;flex-direction: column;gap: 2%; text-align: center;padding: 3%;}
+.bas{width: 98%;height: 46%;background-color: #FFFFFF;display: flex;flex-direction: column;gap: 2%;text-align: center;padding: 3%;}
+
+.bas a:hover{background-color:#F5F5F5;border-radius: 20%;}
+.haut a:hover{background-color:#F5F5F5;border-radius: 20%;}
+
+.textTemp h3{color: #000000;}
+
+.im{border-radius: 50%;}h3{color: black;}
+
+
+.hth
+{text-align: center;font-weight: 500;}
+
+.icTemp{width: 80%;height: 40%;} .icHum{width: 80%;height: 40%}
+.icTemp2{width: 30px;height: 30px; margin-bottom: 2;} .icHum2{width: 30px;height:30px; margin-bottom: 2px;}
+h1{font-weight: bolder; font-size: large;size: 30px;}

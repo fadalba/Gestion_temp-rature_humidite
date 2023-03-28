@@ -1,0 +1,26 @@
+<header class="header" *>
+  <div class="menu_admin">
+      <div class="infos">
+          <div>
+            <div class="profil d-flex justify-center">
+              <!-- <img [src]="currentUser.imageUrl" class="img-fluid rounded-circle"  alt=""> -->
+              <img src="https://media.discordapp.net/attachments/1054326970202202194/1055069837359071302/logo.png?width=413&height=413" class="img-fluid rounded-circle"  alt="">
+          </div>
+          </div>
+          <div class="contpDat" style="display:flex">
+            <div class="nom">
+              <h3>{{ this.currentUser.prenom }} {{ this.currentUser.nom }}</h3>
+              <p>{{ this.currentUser.matricule }}</p>
+            </div>
+            <h3 class="nom" style="color: #FFFFFF; margin-left: 300px;">{{currentDate | date:'dd -MM -yyyy'}}</h3>
+          </div>
+
+      </div>
+      <div class="end">
+        <h3 style="color: #FFFFFF;">{{this.currentUser.ti}}</h3>
+      </div>
+      <div class="end">
+        <a (click)="logout()" *ngIf="this.authService.isLoggedIn" href=""><i id="bi" class="bi bi-box-arrow-left"></i></a>
+      </div>
+  </div>
+</header>

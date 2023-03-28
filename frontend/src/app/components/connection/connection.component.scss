@@ -1,0 +1,65 @@
+.row {
+    width: 500px;
+    margin: 0px auto;
+    border: 1px solid black;
+    box-shadow: 4px 3px 2px black;
+    border-radius: 5px;
+}
+.row form {
+    padding: 30px;
+}
+
+.profil {
+    width: 80px;
+    height: 80px;
+    margin-top: 30px;
+    margin-bottom: 7px;display: flex;justify-content: center;
+}
+a{
+    font-size: 17px;
+}
+.text-center
+{
+  font-size: larger;
+  font-weight: bolder;
+  size: 35px;
+ 
+}
+.img-fluid
+{
+    height: 75px;
+    width: 105px;
+    border-radius: 50%;
+}
+.img-Climat
+{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-top: -11px;
+   
+}
+
+.btn
+{
+    background-color: #0C7C8F;
+    border-color: #0C7C8F;
+    color: #FFFFFF;
+    font-weight: bold;
+    margin-left: 15%;
+    margin-top: 30px;
+    width: 70%;
+    
+}
+.btn:hover
+{
+    background-color: #4BCFFF;
+    border: none;
+    color: blue;
+}
+.form-control
+{
+    border: 1px solid #000000;
+}
+
+span{color: red;} input{color: #000000; font-weight: bolder;}

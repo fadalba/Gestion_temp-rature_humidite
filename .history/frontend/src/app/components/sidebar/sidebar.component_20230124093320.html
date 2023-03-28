@@ -1,0 +1,215 @@
+  <!-- <button class="sidebar-open btnsidebar" (click)="sidebarShow = !sidebarShow">
+    <i class="bi bi-list"></i>
+  </button> -->
+  <div class="sidebar-slider" [class.sidebar-slide-in]="sidebarShow" style="height: 100%;">
+    <!-- <button class="sidebar-close" (click)="sidebarShow = !sidebarShow">x</button> -->
+    <div *ngIf="this.currentUser.role === 'Administrateur'" class="sidebar-content">
+        <h2 class="set-align"></h2>
+        <a href="" routerLink="/dash" style="text-decoration: none;">
+           <div class="set-sidebar-text"><i id="dashboardIcon"class="bi bi-speedometer fa-4x"></i>DashbordAdmin</div>
+        </a>
+        <!-- <div class="set-sidebar-text"><i class="bi bi-person-fill-gear"></i>Modif<br>mot de passe</div> -->
+        <button type="button" class="set-sidebar-text" data-toggle="modal" data-target="#modifpwd"><i class="bi bi-person-fill-gear"></i>Edit</button>
+        <!-- <div class="set-sidebar-text"><i class="bi bi-person-add"></i>inscrire </div> -->
+        <button type="button" class="set-sidebar-text" data-toggle="modal" data-target="#inscrire"><i class="bi bi-person-add"></i>Inscrire</button>
+        <a href="#" routerLink="/actif" style="text-decoration: none;">
+           <div class="set-sidebar-text"><i class="bi bi-person-check" ></i>Actifs</div>
+        </a>
+        <a href="#" routerLink="/archives" style="text-decoration: none;">
+           <div class="set-sidebar-text"><i class="bi bi-person-fill-x"></i>Archivés</div>
+        </a>
+    </div>
+    <!-- Si le gars connecté est un utilisateur simple -->
+    <div *ngIf="this.currentUser.role === 'Utilisateur'" class="sidebar-content">
+        <h2 class="set-align"></h2>
+        <a href="" routerLink="/dash"  style="text-decoration: none;">
+           <div class="set-sidebar-text"><i id="dashboardIcon"class="bi bi-speedometer fa-4x"></i>DashbordUser</div>
+        </a>
+        <!-- <div class="set-sidebar-text"><i class="bi bi-person-fill-gear"></i>Modif<br>mot de passe</div> -->
+        <button type="button" class="set-sidebar-text" data-toggle="modal" data-target="#modifpwd"><i class="bi bi-person-fill-gear"></i>Edit</button>
+        <!-- <div class="set-sidebar-text"><i class="bi bi-person-add"></i>inscrire </div> -->
+        <a href="" routerLink="/actif" style="text-decoration: none;">
+           <div class="set-sidebar-text"><i class="bi bi-person-check" ></i>Actifs</div>
+        </a>
+    </div>
+  </div>
+
+
+<!-- Modal pour l'inscription -->
+<div class="modal fade" id="inscrire" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <button type="button" class="exit" data-dismiss="modal"><i class="bi bi-x-circle"></i></button>
+          <form [formGroup]="signupForm" (ngSubmit)="registerUser()" id="leform" class="row g-3 my-5"
+              enctype="multipart/form-data">
+              <div class="profil justify-center">
+                  <img src="./assets/weather-icon.svg" class="img-Climat">
+              </div>
+
+              <h2 class="text-center">Inscription au système de gestion de br personnel et du climat</h2>
+              <ng-container *ngIf="this.errMsg">
+                  <div class="alert alert-danger" role="alert"><strong> Erreur </strong> {{errMsg}}</div>
+              </ng-container>
+              <div class=" col-md-6">
+                  <label for="nom">Nom</label>
+                  <input [ngClass]="{'is-invalid':submitted && signupForm.controls['nom'].errors}" formControlName="nom"
+                      type="text" class="form-control" autocomplete="on">
+                  <div *ngIf="submitted && signupForm.controls['nom'].errors" class="text-danger">
+                      <div *ngIf="submitted && signupForm.controls['nom'].errors['required']">
+                          Le nom est obligatoire!
+                      </div>
+                      <div *ngIf="submitted && signupForm.controls['nom'].errors['cannotContainSpace']">
+                          Espace non autorisé
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <label for="prenom">Prenom</label>
+                  <input [ngClass]="{'is-invalid':submitted && signupForm.controls['prenom'].errors}" formControlName="prenom"
+                      type="text" class="form-control" autocomplete="on">
+                  <div *ngIf="submitted && signupForm.controls['prenom'].errors" class="text-danger">
+                      <div *ngIf="submitted && signupForm.controls['prenom'].errors['required']">
+                          Le prenom est obligatoire!
+                      </div>
+                      <div *ngIf="submitted && signupForm.controls['prenom'].errors['cannotContainSpace']">
+                          Espace non autorisé
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <label for="email">Addresse Email</label>
+                  <input [ngClass]="{'is-invalid':submitted && signupForm.controls['email'].errors}" formControlName="email"
+                      type="email" class="form-control" autocomplete="on">
+                  <div *ngIf="submitted && signupForm.controls['email'].errors" class="text-danger">
+                      <div *ngIf="submitted && signupForm.controls['email'].errors['required']">
+                          Le mail est obligatoire!
+                      </div>
+                      <div *ngIf="submitted && signupForm.controls['email'].errors['email']">
+                          Le mail n'est pas valide!'
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <label for="role">Rôle</label>
+                  <select class="form-select" [ngClass]="{'is-invalid':submitted && signupForm.controls['role'].errors}"
+                      formControlName="role">
+                      <option selected disabled></option>
+                      <option *ngFor="let item of listDeroulant" [value]="item">{{item}}</option>
+                  </select>
+                  <div *ngIf="submitted && signupForm.controls['role'].errors" class="text-danger">
+                      <div *ngIf="submitted && signupForm.controls['role'].errors['required']">
+                          Choisisez un role
+                      </div>
+                  </div>
+              </div>
+
+              <div class=" col-md-6">
+                  <label for="password">Mot de passe</label>
+                  <input [ngClass]="{'is-invalid':submitted && signupForm.controls['password'].errors}"
+                      formControlName="password" type="password" class="form-control" id="pass1">
+                  <div *ngIf="submitted && signupForm.controls['password'].errors" class="text-danger">
+                      <div *ngIf="submitted && signupForm.controls['password'].errors['required']">
+                          Le mot de passe est necessaire!
+                      </div>
+                      <div *ngIf="submitted && signupForm.controls['password'].errors['minlength']">
+                          Saisi au moins 8 caracteres
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-md-6">
+                  <label for="passwordConfirm">Confirmation mot de passe</label>
+                  <input [ngClass]="{'is-invalid':submitted && signupForm.controls['password'].errors}"
+                      formControlName="passwordConfirm" type="password" class="form-control" autocomplete="on" id="pass2">
+                  <div *ngIf="submitted && signupForm.controls['passwordConfirm'].errors" class="text-danger">
+                      <div *ngIf="submitted && signupForm.controls['passwordConfirm'].errors['required']">
+                          Veillez confirmer le mot de passe
+                      </div>
+                      <div *ngIf="submitted && signupForm.controls['passwordConfirm'].errors['mustMatch']">
+                          Les mots de passe ne correspondent pas
+                      </div>
+                  </div>
+              </div>
+                  <!-- <div class="col-md-6">
+                      <label for="imageUrl">Profil</label>
+                      <input formControlName="imageUrl" type="file" (change)="uploadFile($event)" class="form-control"  accept="image/png, image/gif, image/jpeg, image/jpg" >
+                  </div> -->
+
+                  <div class="form-group">
+                      <button class="btn btn-outline-danger">Inscrire</button>
+                  </div>
+
+          </form>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal pour modification mot de passe-->
+<div class="modal fade" id="modifpwd" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <button type="button" class="exit" data-dismiss="modal"><i class="bi bi-x-circle" id="bi"></i></button>
+      <form [formGroup]="updateForm" (ngSubmit)="updatepass()" id="leform" class="row g-3 my-5"
+      enctype="multipart/form-data">
+      <div class="profil justify-center">
+          <img src="./assets/weather-icon.svg" class="img-Climat">
+      </div>
+
+      <h2 class="text-center"> Modification mot de passe</h2>
+      <ng-container *ngIf="this.errMsg">
+          <div class="alert alert-danger" role="alert"><strong> Erreur </strong> {{errMsg}}</div>
+      </ng-container>
+
+     <div class=" col-md-6">
+        <label for="ancienpassword">Ancien mot de passe</label>
+        <input [ngClass]="{'is-invalid':submitted && updateForm.controls['ancienpassword'].errors}"
+            formControlName="ancienpassword" type="password" class="form-control" id="pass1">
+        <div *ngIf="submitted && updateForm.controls['ancienpassword'].errors" class="text-danger">
+            <div *ngIf="submitted && updateForm.controls['ancienpassword'].errors['required']">
+                Le mot de passe est necessaire!
+            </div>
+            <div *ngIf="submitted && updateForm.controls['ancienpassword'].errors['minlength']">
+                Saisi au moins 8 caracteres !
+            </div>
+
+        </div>
+    </div>
+
+      <div class=" col-md-6">
+          <label for="password">Nouveau mot de passe</label>
+          <input [ngClass]="{'is-invalid':submitted && updateForm.controls['password'].errors}"
+              formControlName="password" type="password" class="form-control" id="pass1">
+          <div *ngIf="submitted && updateForm.controls['password'].errors" class="text-danger">
+              <div *ngIf="submitted && updateForm.controls['password'].errors['required']">
+                  Le mot de passe est necessaire!
+              </div>
+              <div *ngIf="submitted && updateForm.controls['password'].errors['minlength']">
+                  Saisi au moins 8 caracteres
+              </div>
+          </div>
+      </div>
+
+      <div class="col-md-6 ">
+          <label for="passwordConfirm">Confirmation mot de passe</label>
+          <input [ngClass]="{'is-invalid':submitted && updateForm.controls['password'].errors}"
+              formControlName="passwordConfirm" type="password" class="form-control" autocomplete="on" id="pass2">
+          <div *ngIf="submitted && updateForm.controls['passwordConfirm'].errors" class="text-danger">
+              <div *ngIf="submitted && updateForm.controls['passwordConfirm'].errors['required']">
+                  Veillez confirmer le mot de passe
+              </div>
+              <div *ngIf="submitted && updateForm.controls['passwordConfirm'].errors['mustMatch']">
+                  Les mots de passe ne correspondent pas
+              </div>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-outline-danger">Modifié</button>
+    </div>
+
+  </form>
+
+    </div>
+  </div>
+</div>

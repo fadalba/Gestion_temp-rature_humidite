@@ -1,0 +1,128 @@
+<div class="contener">
+  <app-header></app-header>
+<!-- ----------------------------Header-------------------------- -->
+<!-- ici c'est la div qui englobe et le sidebar et le corps du dashboard -->
+
+     <!--  <div class="sidebar" >
+          <app-sidebar></app-sidebar>
+      </div>
+ -->
+
+
+
+</div>
+<div class="my-5" style="width: 100%;height: 90%;margin-top: 0px;">
+   <!-- -------------------Icone liste --------------- -->
+    <!-- -------------------Recherche---------------- -->
+  <div class="form-group col-md-3">
+    <div class="input-group">
+    <span class="input-group-text" id="inputGroupPrepend2"><i class="bi bi-search"></i></span>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Rechercher un utilisateur"
+      [(ngModel)]="filterTerm"/>
+    </div>
+  </div>
+  <!-- -------------------Recherche---------------- -->
+
+  <table class="table table-hover w-75 my-3">
+    <thead style="text-align: center;">
+        <tr class="line">
+            <th scope="col">Prenom</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Email</th>
+            <th scope="col">Rôle</th>
+            <th scope="col" *ngIf="this.currentUser.role === 'Utilisateur'">Actions</th>
+        </tr>
+    </thead>
+    <!-- Recuperer et afficher les informations de la base de donnée -->
+    <tbody  *ngFor="let donnee of Users | filter: filterTerm | paginate: {itemsPerPage:6, currentPage:page, totalItems:totalLenght}">
+      <tr *ngIf="donnee._id !== this.currentUser._id"> <!-- Pour filter l'utilisateur qui est connecté -->
+            <td>{{ donnee.prenom }}</td>
+            <td>{{ donnee.nom }}</td>
+            <td>{{ donnee.email }}</td>
+            <td>{{ donnee.role }}</td>
+            <td *ngIf="this.currentUser.role === 'Utilisateur'">
+
+              <button class="btn link" (click)="archiver(donnee._id, donnee.etat)">
+                <i class="bi bi-arrow-down-square"></i>
+              </button>
+              <button class="btn link" data-toggle="modal" data-target="#modifier" (click)="getUserData(donnee._id,donnee.prenom,donnee.nom,donnee.email)">
+                <i class="bi bi-pencil-square"></i>
+              </button>
+              <button class="btn link" (click)="changeRole(donnee._id, donnee.role)">
+                <i class="bi bi-arrow-left-right" ></i>
+              </button>
+            </td>
+
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal pour la modification -->
+<div class="modal fade" id="modifier" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modifier</h5>
+      </div>
+      <div *ngIf="!errMsg" class="alert alert-danger" role="alert">
+        <strong> Erreur </strong> Email déjà existant !
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="updateForm" (ngSubmit)="onUpdate()">
+          <label for='prenom'>Prenom</label>
+          <input type="text" formControlName="prenom" class="form-control">
+          <div *ngIf="submitted && updateForm.controls['prenom'].errors" class="text-danger">
+            <div *ngIf="submitted && updateForm.controls['prenom'].errors['required']">
+              Veillez renseignez le prenom
+            </div>
+            <div *ngIf="submitted && updateForm.controls['prenom'].errors['cannotContainSpace']">
+              Espace non autorisé
+            </div>
+          </div>
+          <br />
+          <label for='nom'>Nom</label>
+          <input type="text" formControlName="nom" class="form-control">
+          <div *ngIf="submitted && updateForm.controls['nom'].errors" class="text-danger">
+            <div *ngIf="submitted && updateForm.controls['nom'].errors['required']">
+              Veillez renseignez le nom
+            </div>
+            <div *ngIf="submitted && updateForm.controls['nom'].errors['cannotContainSpace']">
+              Espace non autorisé
+            </div>
+          </div>
+          <br />
+          <label for='email'>Adresse email</label>
+          <input type="email" formControlName="email" class="form-control">
+          <div *ngIf="submitted && updateForm.controls['email'].errors" class="text-danger">
+            <div *ngIf="submitted && updateForm.controls['email'].errors['required']">
+              Veillez renseignez le mail
+            </div>
+            <div *ngIf="submitted && updateForm.controls['email'].errors['email']">
+              Le mail n'est pas valide!'
+          </div>
+          </div>
+          <br />
+          <button type="submit" class="btn btn-success">Sauvegarder</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ----------j'enleve fixed-bottom pour fixer la Pagination---------------------- -->
+<div class="pagination fixed-bottom justify-content-center">
+  <pagination-controls (pageChange)="page=$event"></pagination-controls>
+</div>
+
+
+
+
+
+
